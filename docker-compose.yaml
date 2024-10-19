@@ -1,0 +1,41 @@
+version: '3'
+services:
+  backend:
+    build:
+      context: ./libraryBACKEND
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/library_db
+      SPRING_DATASOURCE_USERNAME: user
+      SPRING_DATASOURCE_PASSWORD: password
+    depends_on:
+      - db
+    networks:
+      - backend-network
+
+  frontend:
+    build:
+      context: ./library-management-frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:80"
+    networks:
+      - backend-network
+
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: library_db
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    ports:
+      - "3307:3306"
+    networks:
+      - backend-network
+
+networks:
+  backend-network:
+    driver: bridge

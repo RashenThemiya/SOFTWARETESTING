@@ -75,8 +75,7 @@ class BookServiceTest {
 
         List<Book> borrowedBooks = bookService.findBorrowedBooks();
 
-        assertNotNull(borrowedBooks);
-        assertEquals(1, borrowedBooks.size());
+        assertNotNull(borrowedBooks);        assertEquals(1, borrowedBooks.size());
         assertEquals("Test Book", borrowedBooks.get(0).getTitle());
         verify(bookRepository, times(1)).findByAvailable(false);
     }

@@ -22,7 +22,7 @@ const RegisterUser = ({ setErrorMessage, setSuccessMessage }) => {
   };
 
   return (
-    <div className="p-4 border rounded bg-light"> {/* Bootstrap container styling */}
+    <div className="p-4 border rounded bg-light registernewuser"> {/* Bootstrap container styling */}
       <h2 className="text-center">Register New User</h2> {/* Centered title */}
       <div className="mb-3">
         <input

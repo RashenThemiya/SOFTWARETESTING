@@ -69,10 +69,6 @@ public class LibraryManagementTest {
         wait.until(ExpectedConditions.urlContains("/user-dashboard"));
     }
 
-
-
-
-
     @AfterEach
     public void tearDown() {
         if (driver != null) {
